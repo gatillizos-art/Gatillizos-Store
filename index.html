@@ -105,7 +105,6 @@
     }
     .nav-img-logo {
       height: 70px;
-      /* logo más grande */
       width: auto;
       display: block;
     }
@@ -259,7 +258,6 @@
       cursor: pointer;
       border: none;
       min-height: 48px;
-      /* mejor para táctil */
     }
     .btn:hover {
       transform: translateY(-2px);
@@ -461,7 +459,6 @@
       object-fit: cover;
       display: block;
     }
-    /* Muestra con emoji grande + fondo */
     .prod-img-wrap .emoji-bg {
       font-size: 5rem;
       opacity: 0.9;
@@ -553,19 +550,6 @@
       color: rgba(245, 240, 255, 0.5);
       border: 1px solid rgba(245, 240, 255, 0.12);
     }
-    .out-badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: rgba(0, 0, 0, 0.75);
-      color: rgba(245, 240, 255, 0.4);
-      font-size: 0.62rem;
-      font-weight: 900;
-      padding: 3px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
     .prod-btn {
       margin-top: 14px;
       padding: 10px 16px;
@@ -589,14 +573,86 @@
       background: rgba(0, 212, 232, 0.25);
       transform: scale(1.02);
     }
-    .prod-btn-primary {
-      background: linear-gradient(135deg, var(--pink), #b5006e);
-      color: #fff;
-      border: none;
+
+    /* ── Portafolio ── */
+    .portfolio {
+      background: var(--mid);
     }
-    .prod-btn-primary:hover {
-      opacity: 0.85;
-      background: linear-gradient(135deg, var(--pink), #b5006e);
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .portfolio-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: border-color 0.3s, transform 0.3s;
+      aspect-ratio: 1/1;
+      background: var(--card);
+    }
+    .portfolio-item:hover {
+      border-color: var(--pink);
+      transform: scale(1.02);
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .portfolio-item .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px 16px;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, transparent);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .portfolio-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .video-section {
+      margin-top: 56px;
+      background: var(--card);
+      border-radius: 16px;
+      padding: 32px 24px;
+      border: 1px solid rgba(0, 212, 232, 0.15);
+    }
+    .video-section h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #000;
+    }
+    .video-wrapper iframe,
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     /* ── Pack Artista ── */
@@ -922,21 +978,27 @@
       line-height: 1.7;
     }
 
-    /* ── Testimonios ── */
+    /* ── TESTIMONIOS (con reseñas reales y patitas) ── */
     .testimonials {
       background: var(--mid);
     }
     .testi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
       margin-top: 40px;
     }
     .testi {
       background: var(--card);
-      border-radius: 12px;
-      padding: 24px;
-      border-left: 4px solid var(--pink);
+      border-radius: 16px;
+      padding: 24px 22px;
+      border-left: 5px solid var(--pink);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .testi:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     }
     .testi:nth-child(2) {
       border-color: var(--cyan);
@@ -944,26 +1006,75 @@
     .testi:nth-child(3) {
       border-color: var(--gold);
     }
-    .testi-stars {
-      color: var(--gold);
-      font-size: 0.85rem;
-      margin-bottom: 10px;
+    .testi:nth-child(4) {
+      border-color: var(--pink);
     }
+
+    /* Calificación con patitas (5 patas llenas) */
+    .testi-paws {
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      color: var(--gold);
+    }
+    .testi-paws .paw-full {
+      display: inline-block;
+    }
+    .testi-paws .paw-empty {
+      opacity: 0.25;
+    }
+
     .testi p {
-      font-size: 0.87rem;
+      font-size: 0.9rem;
       line-height: 1.65;
-      color: rgba(245, 240, 255, 0.72);
-      font-style: italic;
+      color: rgba(245, 240, 255, 0.8);
       margin-bottom: 14px;
+      font-style: italic;
     }
     .testi-author {
       font-weight: 900;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .testi-role {
-      font-size: 0.72rem;
+    .testi-author .testi-role {
+      font-size: 0.7rem;
+      font-weight: 400;
       color: rgba(245, 240, 255, 0.4);
+      font-style: normal;
+    }
+    .testi-author .testi-role::before {
+      content: '·';
+      margin: 0 6px;
+    }
+
+    /* Botón para dejar reseña */
+    .review-cta {
+      margin-top: 44px;
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--card);
+      border-radius: 16px;
+      border: 1px solid rgba(232, 62, 140, 0.25);
+    }
+    .review-cta h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .review-cta p {
+      font-size: 0.9rem;
+      color: rgba(245, 240, 255, 0.6);
+      margin-bottom: 18px;
+    }
+    .review-cta .btn-group {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     /* ── CTA final ── */
@@ -1110,12 +1221,9 @@
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
-      /* Logo más grande en móvil también */
       .nav-img-logo {
         height: 60px;
       }
-
-      /* Menú hamburguesa */
       .nav-toggle {
         display: block;
       }
@@ -1126,7 +1234,6 @@
         padding: 12px 0 16px;
         gap: 8px;
         order: 3;
-        /* para que quede debajo del logo y toggle */
       }
       .nav-links.open {
         display: flex;
@@ -1142,9 +1249,7 @@
       }
       .nav-cta {
         display: none;
-        /* se oculta en móvil, pero podemos ponerlo dentro del menú si se desea */
       }
-      /* Mostramos el CTA en el menú desplegable como un item más */
       .nav-links .nav-cta-mobile {
         display: block;
         background: linear-gradient(135deg, var(--pink), #b5006e);
@@ -1156,7 +1261,6 @@
         margin-top: 8px;
       }
 
-      /* Ajustes de hero */
       .hero {
         padding-top: 120px;
       }
@@ -1167,12 +1271,10 @@
         font-size: 2rem;
       }
 
-      /* Secciones */
       section {
         padding: 48px 5vw;
       }
 
-      /* Catálogo */
       .cat-grid {
         grid-template-columns: 1fr 1fr;
         gap: 14px;
@@ -1193,7 +1295,6 @@
         min-height: 40px;
       }
 
-      /* Precios */
       .price-grid {
         grid-template-columns: 1fr 1fr;
         gap: 14px;
@@ -1205,10 +1306,19 @@
         font-size: 2.2rem;
       }
 
-      /* Contacto */
       .contact-grid {
         grid-template-columns: 1fr 1fr;
         gap: 10px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 14px;
+      }
+
+      .testi-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
       }
     }
 
@@ -1249,9 +1359,13 @@
         bottom: 80px;
         left: 16px;
       }
+      .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
     }
 
-    /* Ajuste para Android: mejorar touch */
+    /* Touch improvements */
     button,
     a,
     .btn,
@@ -1262,7 +1376,7 @@
       touch-action: manipulation;
     }
 
-    /* Tabla de precios responsive */
+    /* Table responsive */
     .table-wrap {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -1330,8 +1444,10 @@
     <button class="nav-toggle" id="navToggle" aria-label="Menú">☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#trabajos">Trabajos</a></li>
       <li><a href="#colorear">Pack Artista</a></li>
       <li><a href="#precios">Precios</a></li>
+      <li><a href="#testimonios">Reseñas</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="https://wa.me/56937487831" class="nav-cta-mobile" style="display:none;">💬 Cotizar</a></li>
     </ul>
@@ -1405,7 +1521,7 @@
     </div>
   </section>
 
-  <!-- Catálogo mejorado -->
+  <!-- Catálogo -->
   <section class="catalog" id="catalogo">
     <p class="sec-label">Catálogo de productos</p>
     <h2 class="sec-title">Elige tu <span>producto</span></h2>
@@ -1818,6 +1934,50 @@
 
   <div class="divider"></div>
 
+  <!-- Portafolio -->
+  <section class="portfolio" id="trabajos">
+    <p class="sec-label">Portafolio</p>
+    <h2 class="sec-title">Nuestros <span>trabajos</span></h2>
+    <p class="sec-desc">Mira algunos de los diseños que hemos realizado para nuestros clientes. Cada pieza es única y hecha con amor gatuno.</p>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/400x400/16213E/00D4E8?text=Polera+Anime" alt="Polera anime" />
+        <div class="overlay">Polera Anime · Sublimación</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/400x400/16213E/E83E8C?text=Pack+Miau+Artista" alt="Pack Artista" />
+        <div class="overlay">Pack Miau Artista · Evento</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/400x400/16213E/FFD166?text=Polera+KPop" alt="Polera K-Pop" />
+        <div class="overlay">Polera K‑Pop · Full Color</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/400x400/16213E/00D4E8?text=Mascota" alt="Mascota en polera" />
+        <div class="overlay">Tu mascota · Estampado</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/400x400/16213E/E83E8C?text=Hoodie+Rock" alt="Hoodie rock" />
+        <div class="overlay">Hoodie Rock · Estampado frontal</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/400x400/16213E/FFD166?text=Taza+Personalizada" alt="Taza personalizada" />
+        <div class="overlay">Taza Sublimada · Diseño original</div>
+      </div>
+    </div>
+    <div class="video-section">
+      <h3>🎬 Mira cómo trabajamos</h3>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" title="Video de ejemplo" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p style="text-align:center;margin-top:14px;font-size:0.8rem;color:rgba(245,240,255,0.4);">
+        ⚡ Proceso de estampado y sublimación · Calidad garantizada
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- Pack Artista -->
   <section class="coloring" id="colorear">
     <p class="sec-label">Actividad estrella</p>
@@ -1990,6 +2150,90 @@
     </div>
   </section>
 
+  <!-- TESTIMONIOS con reseñas reales y patitas -->
+  <section class="testimonials" id="testimonios">
+    <p class="sec-label">Reseñas reales</p>
+    <h2 class="sec-title">Lo que dicen <span>nuestros clientes</span></h2>
+    <p class="sec-desc">Opiniones genuinas de personas que ya confiaron en Gatillizos. Todas extraídas de conversaciones de WhatsApp.</p>
+
+    <div class="testi-grid">
+      <!-- Reseña 1: Javi Galdames -->
+      <div class="testi">
+        <div class="testi-paws">
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+        </div>
+        <p>"❤️" (envió un corazón y luego agradeció por el producto).</p>
+        <div class="testi-author">
+          Javi Galdames
+          <span class="testi-role">Cliente satisfecha</span>
+        </div>
+      </div>
+
+      <!-- Reseña 2: César Guerrero -->
+      <div class="testi">
+        <div class="testi-paws">
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+        </div>
+        <p>"Gracias 😊 ... ¡Muy lindo tu trabajo!"</p>
+        <div class="testi-author">
+          César Guerrero B.
+          <span class="testi-role">Cliente recurrente</span>
+        </div>
+      </div>
+
+      <!-- Reseña 3: Pancho Botilleria -->
+      <div class="testi">
+        <div class="testi-paws">
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+        </div>
+        <p>"Están buenísimas 😂😂" (refiriéndose a las poleras personalizadas).</p>
+        <div class="testi-author">
+          Pancho Botilleria
+          <span class="testi-role">Cliente entusiasta</span>
+        </div>
+      </div>
+
+      <!-- Reseña 4: Luis Compañero Mami -->
+      <div class="testi">
+        <div class="testi-paws">
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+          <span class="paw-full">🐾</span>
+        </div>
+        <p>"Me encantó ... ¡Super te pasaste!"</p>
+        <div class="testi-author">
+          Luis Compañero Mami
+          <span class="testi-role">Cliente feliz</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bloque para dejar reseña -->
+    <div class="review-cta">
+      <h3>🐱 ¿Ya probaste nuestros productos?</h3>
+      <p>¡Nos encantaría saber tu opinión! Déjanos tu reseña en Google Maps o cuéntanos por WhatsApp.</p>
+      <div class="btn-group">
+        <a href="https://wa.me/56937487831?text=Hola!%20Quiero%20dejar%20mi%20reseña%20sobre%20Gatillizos" class="btn btn-primary" target="_blank">💬 Reseña por WhatsApp</a>
+        <a href="#" class="btn btn-outline" target="_blank">⭐ Reseña en Google</a>
+      </div>
+      <p style="margin-top:14px;font-size:0.75rem;color:rgba(245,240,255,0.3);">(próximamente enlace directo a Google Maps)</p>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="faq" id="faq">
     <p class="sec-label">Preguntas frecuentes</p>
@@ -2027,32 +2271,6 @@
         <summary>¿Cuáles son los métodos de pago?</summary>
         <div class="faq-body">Transferencia bancaria, Mercado Pago (tarjetas de crédito/débito) y efectivo en retiro presencial. Se solicita un 50% de abono para comenzar la producción.</div>
       </details>
-    </div>
-  </section>
-
-  <!-- Testimonios -->
-  <section class="testimonials" id="testimonios">
-    <p class="sec-label">Lo que dicen</p>
-    <h2 class="sec-title">Clientes <span>felices</span></h2>
-    <div class="testi-grid">
-      <div class="testi">
-        <div class="testi-stars">★★★★★</div>
-        <p>"Pedí 12 poleras del Pack Miau Artista con tema K‑pop para el cumpleaños de mi hija. Quedaron perfectas, los niños las pintaron y fue el éxito total de la fiesta. ¡100% recomendadas!"</p>
-        <div class="testi-author">María José T.</div>
-        <div class="testi-role">Mamá · Cumpleaños temático K‑pop</div>
-      </div>
-      <div class="testi">
-        <div class="testi-stars">★★★★★</div>
-        <p>"La calidad del estampado es increíble. Pedí una polera de David Gilmour y quedó exactamente como la imagen. Muy buena atención y entrega rápida."</p>
-        <div class="testi-author">Felipe A.</div>
-        <div class="testi-role">Cliente recurrente · Polera rock</div>
-      </div>
-      <div class="testi">
-        <div class="testi-stars">★★★★★</div>
-        <p>"Necesitaba merch para mi emprendimiento y Gatillizos me asesoró desde cero. El resultado superó mis expectativas. Rápidos, confiables y con mucho amor en lo que hacen."</p>
-        <div class="testi-author">Camila R.</div>
-        <div class="testi-role">Emprendedora · Merch de marca</div>
-      </div>
     </div>
   </section>
 
@@ -2137,14 +2355,12 @@
         navLinks.classList.toggle('open');
         this.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
       });
-      // Cerrar al hacer clic en un enlace
       navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', function() {
           navLinks.classList.remove('open');
           toggleBtn.textContent = '☰';
         });
       });
-      // Cerrar al hacer clic fuera
       document.addEventListener('click', function(event) {
         if (!navLinks.contains(event.target) && !toggleBtn.contains(event.target)) {
           navLinks.classList.remove('open');
@@ -2153,7 +2369,7 @@
       });
     }
 
-    // ── Smooth scroll para enlaces internos ──
+    // ── Smooth scroll ──
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const target = document.querySelector(this.getAttribute('href'));
