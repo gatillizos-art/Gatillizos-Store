@@ -15,7 +15,8 @@ body{background:var(--dark);color:var(--white);font-family:'Nunito',sans-serif;o
 
 /* NAV */
 nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(13,13,26,.97);backdrop-filter:blur(12px);border-bottom:2px solid var(--pink);display:flex;align-items:center;justify-content:space-between;padding:10px 5vw;gap:12px}
-.nav-logo{font-family:'Pacifico',cursive;font-size:1.5rem;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-logo{display:flex;align-items:center;gap:8px;font-family:'Pacifico',cursive;font-size:1.5rem;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-logo img{height:40px;width:auto;display:block;-webkit-text-fill-color:initial}
 .nav-links{display:flex;gap:20px;list-style:none}
 .nav-links a{color:rgba(245,240,255,.8);text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--cyan)}
@@ -248,7 +249,8 @@ details[open] summary::after{transform:rotate(45deg)}
 /* FOOTER */
 footer{background:var(--dark);border-top:1px solid rgba(232,62,140,.16);padding:32px 5vw;display:flex;flex-direction:column;gap:20px}
 .footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
-.footer-logo{font-family:'Pacifico',cursive;font-size:1.25rem;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer-logo{display:flex;align-items:center;gap:8px;font-family:'Pacifico',cursive;font-size:1.25rem;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer-logo img{height:32px;width:auto;display:block;-webkit-text-fill-color:initial}
 .footer-soc{display:flex;gap:12px;font-size:1.3rem}
 .footer-soc a{color:rgba(245,240,255,.35);text-decoration:none;transition:color .2s}
 .footer-soc a:hover{color:var(--pink)}
@@ -263,6 +265,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
   section{padding:48px 5vw}
   .modal-inner{grid-template-columns:1fr}
   .modal-preview{border-radius:16px 16px 0 0}
+  .nav-logo img{height:32px}
 }
 </style>
 </head>
@@ -273,7 +276,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
 
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">gatillizos</span>
+  <a href="#" class="nav-logo"><img src="logo-gatillizos.png" alt="Gatillizos"/> gatillizos</a>
   <ul class="nav-links">
     <li><a href="#personaliza">Personaliza</a></li>
     <li><a href="#precios">Precios</a></li>
@@ -589,7 +592,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
     </div>
   </div>
 
-  <!-- POLERONES (data-gender="unisex" – usamos hombre para precios) -->
+  <!-- POLERONES (data-gender="hombre" para precios, pero en la tarjeta se muestra) -->
   <div class="tab-panel" id="cat-polerones">
     <div class="prod-grid">
 
@@ -703,7 +706,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
     <div class="srv-card">
       <div class="srv-icon">🖍️</div>
       <h3>Pack Miau Artista</h3>
-      <p>Poleras en contorno listas para colorear. Actividad estrella para cumpleaños y eventos. Incluye set de lápices de 6 colores.</p>
+      <p>Poleras en contorno listas para colorear. Actividad estrella para cumpleaños y eventos. Incluye set de 6 lápices de colores.</p>
     </div>
     <div class="srv-card">
       <div class="srv-icon">🐱</div>
@@ -892,7 +895,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
-    <span class="footer-logo">gatillizos</span>
+    <a href="#" class="footer-logo"><img src="logo-gatillizos.png" alt="Gatillizos"/> gatillizos</a>
     <div class="footer-soc">
       <a href="https://wa.me/56937487831">💬</a>
       <a href="https://instagram.com/gatillizos.s">📸</a>
