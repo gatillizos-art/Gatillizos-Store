@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gatillizos – Poleras & Miaus</title>
   <meta property="og:title" content="Gatillizos – Poleras personalizadas con identidad" />
-  <meta property="og:description" content="Poleras estampadas y sublimadas con alma: anime, K-pop, rock, mascotas y Pack Miau Artista para colorear." />
+  <meta property="og:description" content="Poleras estampadas y sublimadas con alma: anime, K-pop, rock, mascotas y Pack Miau Artista para colorear. Además, tazas, totebags y más." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gatillizos.cl" />
-  <!-- LOGO: Cambia la ruta de abajo por la URL de tu logo cuando esté en GitHub -->
-  <meta property="og:image" content="https://gatillizos.cl/logo-gatillizos.png" /> 
+  <!-- LOGO: Ruta actualizada a logo-gatillizos.png -->
+  <meta property="og:image" content="logo-gatillizos.png" /> 
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;900&family=Pacifico&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -68,8 +68,6 @@
     }
     .float-top:hover { transform: translateY(-4px); }
     nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(13,13,26,.95);backdrop-filter:blur(10px);border-bottom:2px solid var(--pink);display:flex;align-items:center;justify-content:space-between;padding:12px 5vw;gap:16px}
-    /* LOGO: Si usas imagen, elimina la línea de abajo (.nav-logo) y descomenta la línea con <img> */
-    .nav-logo{font-family:'Pacifico',cursive;font-size:1.4rem;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap}
     .nav-img-logo { height: 45px; width: auto; display: block; }
     .nav-links{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
     .nav-links a{color:var(--white);text-decoration:none;font-weight:700;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
@@ -227,10 +225,8 @@
 
 
 <nav>
-  <!-- LOGO: Reemplaza la línea de abajo (<span class="nav-logo">gatillizos</span>) por tu imagen.
-       Ejemplo: <img src="logo-gatillizos.png" alt="Gatillizos" class="nav-img-logo"> -->
-  <span class="nav-logo">gatillizos</span>
-  <!-- FIN LOGO -->
+  <!-- LOGO: Ahora con la ruta correcta logo-gatillizos.png -->
+  <img src="logo-gatillizos.png" alt="Gatillizos" class="nav-img-logo">
   <ul class="nav-links">
     <li><a href="#catalogo">Catálogo</a></li>
     <li><a href="#colorear">Pack Artista</a></li>
@@ -310,15 +306,19 @@
 
 
 <section class="catalog" id="catalogo">
-  <p class="sec-label">Catálogo de poleras</p>
-  <h2 class="sec-title">Elige tu <span>polera base</span></h2>
-  <p class="sec-desc">Trabajamos con algodón de alta calidad seleccionado por Gatillizos. Precio incluye polera + tu estampado personalizado.</p>
+  <p class="sec-label">Catálogo de productos</p>
+  <h2 class="sec-title">Elige tu <span>producto</span></h2>
+  <p class="sec-desc">Desde poleras hasta accesorios, todo personalizado con la calidad Gatillizos.</p>
   <div class="cat-tabs">
     <button class="tab-btn active" onclick="showTab('hombre',this)">👨 Hombre</button>
     <button class="tab-btn" onclick="showTab('mujer',this)">👩 Mujer</button>
     <button class="tab-btn" onclick="showTab('nino',this)">👦 Niños</button>
     <button class="tab-btn" onclick="showTab('especial',this)">⭐ Especiales</button>
+    <button class="tab-btn" onclick="showTab('accesorios',this)">🎁 Accesorios</button>
   </div>
+
+
+  <!-- PANEL HOMBRE -->
   <div class="tab-panel active" id="tab-hombre">
     <div class="cat-grid">
       <div class="prod-card">
@@ -413,6 +413,9 @@
       </div>
     </div>
   </div>
+
+
+  <!-- PANEL MUJER -->
   <div class="tab-panel" id="tab-mujer">
     <div class="cat-grid">
       <div class="prod-card">
@@ -477,6 +480,9 @@
       </div>
     </div>
   </div>
+
+
+  <!-- PANEL NIÑOS -->
   <div class="tab-panel" id="tab-nino">
     <div class="cat-grid">
       <div class="prod-card">
@@ -526,6 +532,9 @@
       </div>
     </div>
   </div>
+
+
+  <!-- PANEL ESPECIALES -->
   <div class="tab-panel" id="tab-especial">
     <div class="cat-grid">
       <div class="prod-card">
@@ -570,6 +579,118 @@
               <div class="price-final">$9.900</div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- PANEL ACCESORIOS -->
+  <div class="tab-panel" id="tab-accesorios">
+    <div class="cat-grid">
+      <div class="prod-card">
+        <div class="prod-img-wrap">☕</div>
+        <div class="prod-info">
+          <span class="prod-tag tag-c">Sublimación</span>
+          <h3>Taza Sublimable Blanca</h3>
+          <p class="prod-desc">Taza de cerámica blanca de 11 oz. Sublimación full color. Ideal para fotos, ilustraciones y diseños personalizados.</p>
+          <div class="prod-pricing">
+            <div>
+              <div class="price-label">Con tu diseño</div>
+              <div class="price-final">$7.900</div>
+            </div>
+          </div>
+          <div class="prod-sizes"><span class="size-chip">11 oz</span><span class="size-chip">Cerámica</span></div>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-wrap">☕</div>
+        <div class="prod-info">
+          <span class="prod-tag tag-p">Efecto especial</span>
+          <h3>Taza Sublimable Negra</h3>
+          <p class="prod-desc">Taza negra de cerámica. El estampado se ve con un acabado brillante y vibrante sobre fondo oscuro.</p>
+          <div class="prod-pricing">
+            <div>
+              <div class="price-label">Con tu diseño</div>
+              <div class="price-final">$8.900</div>
+            </div>
+          </div>
+          <div class="prod-sizes"><span class="size-chip">11 oz</span><span class="size-chip">Cerámica</span></div>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-wrap">🌡️</div>
+        <div class="prod-info">
+          <span class="prod-tag tag-g">Mágica</span>
+          <h3>Taza Mágica (cambia de color)</h3>
+          <p class="prod-desc">Taza que revela el diseño al recibir líquido caliente. Blanco → color. Perfecta para regalos sorpresa.</p>
+          <div class="prod-pricing">
+            <div>
+              <div class="price-label">Con tu diseño</div>
+              <div class="price-final">$12.900</div>
+            </div>
+          </div>
+          <div class="prod-sizes"><span class="size-chip">11 oz</span><span class="size-chip">Termocromática</span></div>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-wrap">🛍️</div>
+        <div class="prod-info">
+          <span class="prod-tag tag-c">Ecológica</span>
+          <h3>ToteBag de Algodón</h3>
+          <p class="prod-desc">Bolsa de algodón 100% natural, resistente y reutilizable. Estampado en una o ambas caras. Ideal para shopping o regalos.</p>
+          <div class="prod-pricing">
+            <div>
+              <div class="price-label">Con tu diseño</div>
+              <div class="price-final">$8.900</div>
+            </div>
+          </div>
+          <div class="prod-sizes"><span class="size-chip">38x42 cm</span><span class="size-chip">Algodón</span></div>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-wrap">🧴</div>
+        <div class="prod-info">
+          <span class="prod-tag tag-p">Térmica</span>
+          <h3>Botella de Agua Térmica</h3>
+          <p class="prod-desc">Botella de acero inoxidable con doble pared, mantiene frío/calor. Sublimación full color. Capacidad 500 ml.</p>
+          <div class="prod-pricing">
+            <div>
+              <div class="price-label">Con tu diseño</div>
+              <div class="price-final">$14.900</div>
+            </div>
+          </div>
+          <div class="prod-sizes"><span class="size-chip">500 ml</span><span class="size-chip">Acero</span></div>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-wrap">🔑</div>
+        <div class="prod-info">
+          <span class="prod-tag tag-g">Mini</span>
+          <h3>Llavero Acrílico</h3>
+          <p class="prod-desc">Llavero de acrílico transparente con tu diseño impreso en sublimación. Resistente y ligero. Ideal para souvenir.</p>
+          <div class="prod-pricing">
+            <div>
+              <div class="price-label">Con tu diseño</div>
+              <div class="price-final">$4.900</div>
+            </div>
+          </div>
+          <div class="prod-sizes"><span class="size-chip">6x6 cm</span><span class="size-chip">Acrílico</span></div>
+        </div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img-wrap">🧲</div>
+        <div class="prod-info">
+          <span class="prod-tag tag-c">Imán</span>
+          <h3>Imán para Nevera</h3>
+          <p class="prod-desc">Imán de vinilo flexible con impresión full color. Perfecto para decorar la nevera o como recuerdo.</p>
+          <div class="prod-pricing">
+            <div>
+              <div class="price-label">Con tu diseño</div>
+              <div class="price-final">$3.900</div>
+            </div>
+          </div>
+          <div class="prod-sizes"><span class="size-chip">5x5 cm</span><span class="size-chip">Vinilo</span></div>
         </div>
       </div>
     </div>
@@ -861,7 +982,8 @@
 
 <footer>
   <div class="footer-top">
-    <span class="footer-logo">gatillizos</span>
+    <!-- Logo también en el footer (opcional) -->
+    <img src="logo-gatillizos.png" alt="Gatillizos" style="height: 35px; width: auto; display: block;">
     <div class="footer-social">
       <a href="https://wa.me/56937487831" target="_blank" aria-label="WhatsApp">💬</a>
       <a href="https://instagram.com/gatillizos.s" target="_blank" aria-label="Instagram">📸</a>
