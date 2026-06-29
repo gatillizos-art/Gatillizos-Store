@@ -15,7 +15,8 @@ body{background:var(--dark);color:var(--white);font-family:'Nunito',sans-serif;o
 
 /* NAV */
 nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(13,13,26,.97);backdrop-filter:blur(12px);border-bottom:2px solid var(--pink);display:flex;align-items:center;justify-content:space-between;padding:10px 5vw;gap:12px}
-.nav-logo{font-family:'Pacifico',cursive;font-size:1.5rem;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-logo{display:flex;align-items:center;gap:8px;font-family:'Pacifico',cursive;font-size:1.5rem;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-logo img{height:40px;width:auto;display:block;-webkit-text-fill-color:initial}
 .nav-links{display:flex;gap:20px;list-style:none}
 .nav-links a{color:rgba(245,240,255,.8);text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--cyan)}
@@ -64,7 +65,7 @@ section{padding:68px 5vw}
 .sec-title span{background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .sec-desc{margin-top:10px;font-size:.92rem;color:rgba(245,240,255,.58);line-height:1.65;max-width:560px}
 
-/* ── GRILLA DE PRODUCTOS TIPO MUNDOTRANSFER ── */
+/* ── GRILLA DE PRODUCTOS ── */
 .personaliza{background:var(--mid)}
 .pcat-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px;margin-bottom:32px}
 .pcat-btn{padding:9px 18px;border-radius:99px;font-weight:900;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid rgba(245,240,255,.18);background:transparent;color:rgba(245,240,255,.45);cursor:pointer;transition:all .2s;min-height:40px}
@@ -248,7 +249,8 @@ details[open] summary::after{transform:rotate(45deg)}
 /* FOOTER */
 footer{background:var(--dark);border-top:1px solid rgba(232,62,140,.16);padding:32px 5vw;display:flex;flex-direction:column;gap:20px}
 .footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
-.footer-logo{font-family:'Pacifico',cursive;font-size:1.25rem;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer-logo{display:flex;align-items:center;gap:8px;font-family:'Pacifico',cursive;font-size:1.25rem;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer-logo img{height:32px;width:auto;display:block;-webkit-text-fill-color:initial}
 .footer-soc{display:flex;gap:12px;font-size:1.3rem}
 .footer-soc a{color:rgba(245,240,255,.35);text-decoration:none;transition:color .2s}
 .footer-soc a:hover{color:var(--pink)}
@@ -263,6 +265,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
   section{padding:48px 5vw}
   .modal-inner{grid-template-columns:1fr}
   .modal-preview{border-radius:16px 16px 0 0}
+  .nav-logo img{height:32px}
 }
 </style>
 </head>
@@ -273,7 +276,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
 
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">gatillizos</span>
+  <a href="#" class="nav-logo"><img src="logo-gatillizos.png" alt="Gatillizos"/> gatillizos</a>
   <ul class="nav-links">
     <li><a href="#personaliza">Personaliza</a></li>
     <li><a href="#precios">Precios</a></li>
@@ -299,7 +302,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
         <div class="pp-label">Desde</div>
         <div class="pp-price">$14.900</div>
       </div>
-      <div class="pp-note">polera Roly<br>+ estampado incluido</div>
+      <div class="pp-note">polera base + estampado DTF incluido</div>
     </div>
     <div class="hero-cta">
       <a href="#personaliza" class="btn btn-primary">🎨 Diseñar ahora</a>
@@ -322,12 +325,12 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
 <div class="divider"></div>
 
 <!-- ═══════════════════════════════════════
-     SECCIÓN PERSONALIZA  (estilo MundoTransfer)
+     SECCIÓN PERSONALIZA
 ═══════════════════════════════════════ -->
 <section class="personaliza" id="personaliza">
   <p class="sec-label">Diseña online</p>
   <h2 class="sec-title">Elige tu <span>modelo & personaliza</span></h2>
-  <p class="sec-desc">Selecciona el modelo Roly, elige color y talla, carga tu diseño y cotiza al instante por WhatsApp.</p>
+  <p class="sec-desc">Selecciona el modelo, elige color y talla, carga tu diseño y cotiza al instante por WhatsApp.</p>
 
   <div class="pcat-tabs">
     <button class="pcat-btn active" onclick="showCat('poleras-h',this)">👨 Poleras Hombre</button>
@@ -337,111 +340,96 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
     <button class="pcat-btn" onclick="showCat('accesorios',this)">🎒 Accesorios</button>
   </div>
 
-  <!-- HOMBRE -->
+  <!-- HOMBRE (data-gender="hombre") -->
   <div class="tab-panel active" id="cat-poleras-h">
     <div class="prod-grid">
 
-      <div class="pcard" onclick="openModal('Polera Beagle Hombre','👕',14900,'hombre',['#ffffff','#000000','#1e3a5f','#8b0000','#2d5a27','#4a4a4a','#c8a96e'])">
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polera Miau Clásica','👕','unisex',['#ffffff','#000000','#1e3a5f','#8b0000','#2d5a27','#4a4a4a','#c8a96e'])">
         <span class="hot-badge">🔥 Más vendida</span>
         <div class="pcard-img-placeholder">👕</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Roly · 100% Algodón</div>
-          <div class="pcard-name">Polera Beagle Hombre</div>
+          <div class="pcard-cat">100% Algodón · DTF</div>
+          <div class="pcard-name">Polera Miau Clásica</div>
           <div class="pcard-colors">
-            <div class="color-dot" style="background:#fff;border-color:#ccc" title="Blanco"></div>
-            <div class="color-dot" style="background:#000" title="Negro"></div>
-            <div class="color-dot" style="background:#1e3a5f" title="Azul marino"></div>
-            <div class="color-dot" style="background:#8b0000" title="Rojo"></div>
-            <div class="color-dot" style="background:#2d5a27" title="Verde"></div>
-            <div class="color-dot" style="background:#4a4a4a" title="Gris"></div>
+            <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
+            <div class="color-dot" style="background:#000"></div>
+            <div class="color-dot" style="background:#1e3a5f"></div>
+            <div class="color-dot" style="background:#8b0000"></div>
+            <div class="color-dot" style="background:#2d5a27"></div>
+            <div class="color-dot" style="background:#4a4a4a"></div>
           </div>
           <div class="pcard-sizes">
             <span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span><span class="sz">3XL</span>
           </div>
-          <div class="pcard-price">$14.900</div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
 
-      <div class="pcard" onclick="openModal('Polera Dogo Premium Blanca Hombre','👕',14900,'hombre',['#ffffff'])">
-        <span class="new-badge">✨ Sublimación</span>
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polera Miau DTF Blanca','👕','unisex',['#ffffff'])">
+        <span class="new-badge">✨ DTF Full Color</span>
         <div class="pcard-img-placeholder">👕</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Roly · Sublimación Full Color</div>
-          <div class="pcard-name">Polera Dogo Premium Blanca</div>
-          <div class="pcard-colors">
-            <div class="color-dot" style="background:#fff;border-color:#ccc" title="Blanco"></div>
-          </div>
-          <div class="pcard-sizes">
-            <span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span><span class="sz">3XL</span><span class="sz">4XL</span>
-          </div>
-          <div class="pcard-price">$14.900</div>
-          <button class="pcard-btn">🎨 Personalizar</button>
-        </div>
-      </div>
-
-      <div class="pcard" onclick="openModal('Polera Dogo Premium Color Hombre','👕',15900,'hombre',['#000000','#1e3a5f','#8b0000','#2d5a27','#4a4a4a','#6b2d8b','#c8691e'])">
-        <div class="pcard-img-placeholder">👕</div>
-        <div class="pcard-body">
-          <div class="pcard-cat">Roly · Transfer sobre color</div>
-          <div class="pcard-name">Polera Dogo Premium Color</div>
-          <div class="pcard-colors">
-            <div class="color-dot" style="background:#000" title="Negro"></div>
-            <div class="color-dot" style="background:#1e3a5f" title="Azul marino"></div>
-            <div class="color-dot" style="background:#8b0000" title="Rojo"></div>
-            <div class="color-dot" style="background:#2d5a27" title="Verde"></div>
-            <div class="color-dot" style="background:#6b2d8b" title="Morado"></div>
-            <div class="color-dot" style="background:#4a4a4a" title="Gris"></div>
-          </div>
-          <div class="pcard-sizes">
-            <span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span>
-          </div>
-          <div class="pcard-price">$15.900</div>
-          <button class="pcard-btn">🎨 Personalizar</button>
-        </div>
-      </div>
-
-      <div class="pcard" onclick="openModal('Polera Extreme Blanca Hombre','👕',15900,'hombre',['#ffffff'])">
-        <div class="pcard-img-placeholder">🏃</div>
-        <div class="pcard-body">
-          <div class="pcard-cat">Roly · Deportiva transpirable</div>
-          <div class="pcard-name">Polera Extreme Blanca Hombre</div>
+          <div class="pcard-cat">DTF textil · Full Color</div>
+          <div class="pcard-name">Polera Miau DTF Blanca</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
           </div>
           <div class="pcard-sizes">
-            <span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span><span class="sz">3XL</span>
+            <span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span><span class="sz">3XL</span><span class="sz">4XL</span>
           </div>
-          <div class="pcard-price">$15.900</div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
 
-      <div class="pcard" onclick="openModal('Polera Extreme Color Hombre','👕',16900,'hombre',['#000000','#1e3a5f','#8b0000','#2d5a27'])">
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polera Miau Color DTF','👕','unisex',['#000000','#1e3a5f','#8b0000','#2d5a27','#4a4a4a','#6b2d8b','#c8691e'])">
+        <div class="pcard-img-placeholder">👕</div>
+        <div class="pcard-body">
+          <div class="pcard-cat">DTF sobre color</div>
+          <div class="pcard-name">Polera Miau Color DTF</div>
+          <div class="pcard-colors">
+            <div class="color-dot" style="background:#000"></div>
+            <div class="color-dot" style="background:#1e3a5f"></div>
+            <div class="color-dot" style="background:#8b0000"></div>
+            <div class="color-dot" style="background:#2d5a27"></div>
+            <div class="color-dot" style="background:#6b2d8b"></div>
+            <div class="color-dot" style="background:#4a4a4a"></div>
+          </div>
+          <div class="pcard-sizes">
+            <span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span>
+          </div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
+          <button class="pcard-btn">🎨 Personalizar</button>
+        </div>
+      </div>
+
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polera Miau Sport DTF','👕','unisex',['#ffffff','#000000','#1e3a5f','#8b0000','#2d5a27'])">
         <div class="pcard-img-placeholder">🏃</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Roly · Deportiva transpirable</div>
-          <div class="pcard-name">Polera Extreme Color Hombre</div>
+          <div class="pcard-cat">Deportiva · DTF</div>
+          <div class="pcard-name">Polera Miau Sport DTF</div>
           <div class="pcard-colors">
+            <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
             <div class="color-dot" style="background:#000"></div>
             <div class="color-dot" style="background:#1e3a5f"></div>
             <div class="color-dot" style="background:#8b0000"></div>
             <div class="color-dot" style="background:#2d5a27"></div>
           </div>
           <div class="pcard-sizes">
-            <span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span>
+            <span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span><span class="sz">3XL</span>
           </div>
-          <div class="pcard-price">$16.900</div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
 
-      <div class="pcard" onclick="openModal('Polera Golden Hombre','👕',16900,'hombre',['#ffffff','#000000','#4a4a4a','#1e3a5f','#c8a96e'])">
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polera Miau Vintage','👕','unisex',['#ffffff','#000000','#4a4a4a','#1e3a5f','#c8a96e'])">
         <span class="new-badge">🎸 Rock / Vintage</span>
         <div class="pcard-img-placeholder">🎸</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Roly · Algodón premium</div>
-          <div class="pcard-name">Polera Golden Hombre</div>
+          <div class="pcard-cat">Algodón premium · DTF</div>
+          <div class="pcard-name">Polera Miau Vintage</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
             <div class="color-dot" style="background:#000"></div>
@@ -451,24 +439,24 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
           <div class="pcard-sizes">
             <span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span>
           </div>
-          <div class="pcard-price">$16.900</div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
 
-      <div class="pcard" onclick="openModal('Polera Sublima Hombre','👕',17900,'hombre',['#ffffff'])">
-        <span class="new-badge">✨ Full sublimación</span>
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polera Miau Full Color DTF','👕','unisex',['#ffffff'])">
+        <span class="new-badge">✨ Full DTF</span>
         <div class="pcard-img-placeholder">✨</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Roly · Poliéster sublimación</div>
-          <div class="pcard-name">Polera Sublima Hombre</div>
+          <div class="pcard-cat">DTF textil · Alta resolución</div>
+          <div class="pcard-name">Polera Miau Full Color DTF</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
           </div>
           <div class="pcard-sizes">
             <span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span>
           </div>
-          <div class="pcard-price">$17.900</div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
@@ -476,16 +464,16 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
     </div>
   </div>
 
-  <!-- MUJER -->
+  <!-- MUJER (data-gender="unisex") -->
   <div class="tab-panel" id="cat-poleras-m">
     <div class="prod-grid">
 
-      <div class="pcard" onclick="openModal('Polera Jamaica Mujer','👚',14900,'mujer',['#ffffff','#000000','#e8c4d4','#1e3a5f','#6b2d8b','#8b0000'])">
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polera Miau Fit','👚','unisex',['#ffffff','#000000','#e8c4d4','#1e3a5f','#6b2d8b','#8b0000'])">
         <span class="hot-badge">🔥 Más pedida</span>
         <div class="pcard-img-placeholder">👚</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Roly · Corte entallado</div>
-          <div class="pcard-name">Polera Jamaica Mujer</div>
+          <div class="pcard-cat">Corte entallado · DTF</div>
+          <div class="pcard-name">Polera Miau Fit</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
             <div class="color-dot" style="background:#000"></div>
@@ -496,33 +484,18 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
           <div class="pcard-sizes">
             <span class="sz">XS</span><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span>
           </div>
-          <div class="pcard-price">$14.900</div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
 
-      <div class="pcard" onclick="openModal('Polera Extreme Blanca Mujer','👚',14900,'mujer',['#ffffff'])">
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polera Miau Sport DTF Mujer','👚','unisex',['#ffffff','#000000','#1e3a5f','#8b0000','#6b2d8b'])">
         <div class="pcard-img-placeholder">🏃</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Roly · Deportiva</div>
-          <div class="pcard-name">Polera Extreme Blanca Mujer</div>
+          <div class="pcard-cat">Deportiva · DTF</div>
+          <div class="pcard-name">Polera Miau Sport DTF Mujer</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
-          </div>
-          <div class="pcard-sizes">
-            <span class="sz">XS</span><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span>
-          </div>
-          <div class="pcard-price">$14.900</div>
-          <button class="pcard-btn">🎨 Personalizar</button>
-        </div>
-      </div>
-
-      <div class="pcard" onclick="openModal('Polera Extreme Color Mujer','👚',14900,'mujer',['#000000','#1e3a5f','#8b0000','#6b2d8b','#2d5a27'])">
-        <div class="pcard-img-placeholder">🏃</div>
-        <div class="pcard-body">
-          <div class="pcard-cat">Roly · Deportiva color</div>
-          <div class="pcard-name">Polera Extreme Color Mujer</div>
-          <div class="pcard-colors">
             <div class="color-dot" style="background:#000"></div>
             <div class="color-dot" style="background:#1e3a5f"></div>
             <div class="color-dot" style="background:#8b0000"></div>
@@ -531,24 +504,24 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
           <div class="pcard-sizes">
             <span class="sz">XS</span><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span>
           </div>
-          <div class="pcard-price">$14.900</div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
 
-      <div class="pcard" onclick="openModal('Polera Sublima Mujer','👚',17900,'mujer',['#ffffff'])">
-        <span class="new-badge">✨ Full color</span>
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polera Miau Full Color DTF Mujer','👚','unisex',['#ffffff'])">
+        <span class="new-badge">✨ Full DTF</span>
         <div class="pcard-img-placeholder">✨</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Roly · Sublimación total</div>
-          <div class="pcard-name">Polera Sublima Mujer</div>
+          <div class="pcard-cat">DTF textil · Alta resolución</div>
+          <div class="pcard-name">Polera Miau Full Color DTF Mujer</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
           </div>
           <div class="pcard-sizes">
             <span class="sz">XS</span><span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span>
           </div>
-          <div class="pcard-price">$17.900</div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
@@ -556,16 +529,16 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
     </div>
   </div>
 
-  <!-- NIÑO -->
+  <!-- NIÑO (data-gender="unisex") -->
   <div class="tab-panel" id="cat-poleras-n">
     <div class="prod-grid">
 
-      <div class="pcard" onclick="openModal('Polera Dogo Premium Niño','🧒',12900,'niño',['#ffffff','#000000','#e8c4d4','#1e3a5f','#8b0000','#2d5a27'])">
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polera Miau Kids Clásica','🧒','unisex',['#ffffff','#000000','#e8c4d4','#1e3a5f','#8b0000','#2d5a27'])">
         <span class="hot-badge">🎂 Para colorear</span>
         <div class="pcard-img-placeholder">🧒</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Roly · Niño 4–14</div>
-          <div class="pcard-name">Polera Dogo Premium Niño</div>
+          <div class="pcard-cat">Niño 4–14 · DTF</div>
+          <div class="pcard-name">Polera Miau Kids Clásica</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
             <div class="color-dot" style="background:#000"></div>
@@ -575,16 +548,16 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
           <div class="pcard-sizes">
             <span class="sz">4</span><span class="sz">6</span><span class="sz">8</span><span class="sz">10</span><span class="sz">12</span><span class="sz">14</span>
           </div>
-          <div class="pcard-price">$12.900</div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
 
-      <div class="pcard" onclick="openModal('Polera Extreme Niño','🧒',12900,'niño',['#ffffff','#000000','#1e3a5f','#8b0000'])">
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polera Miau Kids Sport','🧒','unisex',['#ffffff','#000000','#1e3a5f','#8b0000'])">
         <div class="pcard-img-placeholder">🏃</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Roly · Niño deportiva</div>
-          <div class="pcard-name">Polera Extreme Niño</div>
+          <div class="pcard-cat">Niño deportiva · DTF</div>
+          <div class="pcard-name">Polera Miau Kids Sport</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
             <div class="color-dot" style="background:#000"></div>
@@ -593,16 +566,16 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
           <div class="pcard-sizes">
             <span class="sz">4</span><span class="sz">6</span><span class="sz">8</span><span class="sz">10</span><span class="sz">12</span>
           </div>
-          <div class="pcard-price">$12.900</div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
 
-      <div class="pcard" onclick="openModal('Polera Montecarlo Niño','🧒',12900,'niño',['#ffffff','#000000','#1e3a5f'])">
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polera Miau Kids UV','🧒','unisex',['#ffffff','#000000','#1e3a5f'])">
         <div class="pcard-img-placeholder">⚽</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Roly · UV Protection</div>
-          <div class="pcard-name">Polera Montecarlo Niño</div>
+          <div class="pcard-cat">UV Protection · DTF</div>
+          <div class="pcard-name">Polera Miau Kids UV</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
             <div class="color-dot" style="background:#000"></div>
@@ -611,7 +584,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
           <div class="pcard-sizes">
             <span class="sz">4</span><span class="sz">6</span><span class="sz">8</span><span class="sz">10</span><span class="sz">12</span><span class="sz">14</span>
           </div>
-          <div class="pcard-price">$12.900</div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
@@ -619,16 +592,16 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
     </div>
   </div>
 
-  <!-- POLERONES -->
+  <!-- POLERONES (data-gender="unisex" pero precios diferenciados) -->
   <div class="tab-panel" id="cat-polerones">
     <div class="prod-grid">
 
-      <div class="pcard" onclick="openModal('Polerón Clásica Unisex','🧥',22900,'unisex',['#ffffff','#000000','#4a4a4a','#1e3a5f','#8b0000','#2d5a27'])">
+      <div class="pcard" data-gender="unisex" onclick="openModal('Polerón Miau Unisex','🧥','unisex',['#ffffff','#000000','#4a4a4a','#1e3a5f','#8b0000','#2d5a27'])">
         <span class="new-badge">🧥 Invierno</span>
         <div class="pcard-img-placeholder">🧥</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Roly · Algodón pesado</div>
-          <div class="pcard-name">Polerón Clásica Unisex</div>
+          <div class="pcard-cat">Algodón pesado · DTF</div>
+          <div class="pcard-name">Polerón Miau Unisex</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
             <div class="color-dot" style="background:#000"></div>
@@ -637,9 +610,9 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
             <div class="color-dot" style="background:#8b0000"></div>
           </div>
           <div class="pcard-sizes">
-            <span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span>
+            <span class="sz">S</span><span class="sz">M</span><span class="sz">L</span><span class="sz">XL</span><span class="sz">2XL</span><span class="sz">3XL</span>
           </div>
-          <div class="pcard-price">$22.900</div>
+          <div class="pcard-price">$<span class="price-value"></span></div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
@@ -647,64 +620,64 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
     </div>
   </div>
 
-  <!-- ACCESORIOS -->
+  <!-- ACCESORIOS (precios fijos) -->
   <div class="tab-panel" id="cat-accesorios">
     <div class="prod-grid">
 
-      <div class="pcard" onclick="openModal('Gorro Malla Sublimación','🧢',7900,'unisex',['#ffffff'])">
+      <div class="pcard" onclick="openModal('Gorro Miau','🧢','accesorio',['#ffffff'],13900)">
         <div class="pcard-img-placeholder">🧢</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Sublimación total</div>
-          <div class="pcard-name">Gorro Malla Sublimación</div>
+          <div class="pcard-cat">Sublimación / DTF UV</div>
+          <div class="pcard-name">Gorro Miau</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
           </div>
           <div class="pcard-sizes"><span class="sz">Única</span></div>
-          <div class="pcard-price">$7.900</div>
+          <div class="pcard-price">$13.900</div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
 
-      <div class="pcard" onclick="openModal('Tazón Sublimación 11oz','☕',7900,'unisex',['#ffffff'])">
+      <div class="pcard" onclick="openModal('Taza Miau','☕','accesorio',['#ffffff'],12900)">
         <div class="pcard-img-placeholder">☕</div>
         <div class="pcard-body">
           <div class="pcard-cat">Sublimación · 11 oz</div>
-          <div class="pcard-name">Tazón Personalizado</div>
+          <div class="pcard-name">Taza Miau</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
           </div>
           <div class="pcard-sizes"><span class="sz">11 oz</span><span class="sz">15 oz</span></div>
-          <div class="pcard-price">$7.900</div>
+          <div class="pcard-price">$12.900</div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
 
-      <div class="pcard" onclick="openModal('Tote Bag Personalizada','🛍️',10900,'unisex',['#ffffff','#000000'])">
+      <div class="pcard" onclick="openModal('Tote Bag Miau','🛍️','accesorio',['#ffffff','#000000'],12900)">
         <div class="pcard-img-placeholder">🛍️</div>
         <div class="pcard-body">
-          <div class="pcard-cat">Algodón ecológico</div>
-          <div class="pcard-name">Tote Bag Personalizada</div>
+          <div class="pcard-cat">DTF UV · Algodón</div>
+          <div class="pcard-name">Tote Bag Miau</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
             <div class="color-dot" style="background:#000"></div>
           </div>
           <div class="pcard-sizes"><span class="sz">Única</span></div>
-          <div class="pcard-price">$10.900</div>
+          <div class="pcard-price">$12.900</div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
 
-      <div class="pcard" onclick="openModal('Botella Aluminio 600ml','🍶',8900,'unisex',['#ffffff','#4a4a4a'])">
+      <div class="pcard" onclick="openModal('Botella Miau','🍶','accesorio',['#ffffff','#4a4a4a'],13900)">
         <div class="pcard-img-placeholder">🍶</div>
         <div class="pcard-body">
           <div class="pcard-cat">Sublimación · 600 ml</div>
-          <div class="pcard-name">Botella Aluminio</div>
+          <div class="pcard-name">Botella Miau</div>
           <div class="pcard-colors">
             <div class="color-dot" style="background:#fff;border-color:#ccc"></div>
             <div class="color-dot" style="background:#4a4a4a"></div>
           </div>
           <div class="pcard-sizes"><span class="sz">600 ml</span></div>
-          <div class="pcard-price">$8.900</div>
+          <div class="pcard-price">$13.900</div>
           <button class="pcard-btn">🎨 Personalizar</button>
         </div>
       </div>
@@ -722,23 +695,23 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
   <div class="srv-grid">
     <div class="srv-card">
       <div class="srv-icon">🎨</div>
-      <h3>Transfer Vinilo</h3>
-      <p>Vinilo de alta duración aplicado con prensa profesional. Ideal para 1–3 colores, logos y textos. Resistente a lavados.</p>
+      <h3>DTF Textil</h3>
+      <p>Impresión en película transferida con calor. Alta duración, colores vibrantes y textura suave. Ideal para poleras y polerones.</p>
     </div>
     <div class="srv-card">
       <div class="srv-icon">✨</div>
-      <h3>Sublimación Full Color</h3>
-      <p>La tinta pasa a ser parte de la tela. Colores fotográficos, degradados y diseños complejos sin límite. Solo en blanco/poliéster.</p>
+      <h3>Sublimación</h3>
+      <p>La tinta pasa a ser parte de la tela o del recubrimiento. Perfecta para tazas, botellas y artículos con superficie especial.</p>
     </div>
     <div class="srv-card">
       <div class="srv-icon">🖍️</div>
       <h3>Pack Miau Artista</h3>
-      <p>Poleras en contorno listas para colorear. Actividad estrella para cumpleaños y eventos. Los niños se llevan su arte.</p>
+      <p>Poleras en contorno listas para colorear. Actividad estrella para cumpleaños y eventos. Incluye set de 6 lápices de colores.</p>
     </div>
     <div class="srv-card">
       <div class="srv-icon">🐱</div>
       <h3>Tu mascota en polera</h3>
-      <p>Foto de tu gatico o perrito convertida en arte estampado. El regalo más original y personalizado.</p>
+      <p>Foto de tu gatico o perrito convertida en arte estampado DTF. El regalo más original y personalizado.</p>
     </div>
     <div class="srv-card">
       <div class="srv-icon">🏷️</div>
@@ -748,7 +721,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
     <div class="srv-card">
       <div class="srv-icon">📦</div>
       <h3>Envíos a todo Chile</h3>
-      <p>Starken, Chilexpress y Correos. Retiro gratis en Santiago. Cada polera va sellada con el sticker Gatillizos 🐾</p>
+      <p>Starken, Chilexpress y Correos. Retiro gratis en Santiago. Cada producto va sellado con el sticker Gatillizos 🐾</p>
     </div>
   </div>
 </section>
@@ -756,96 +729,45 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
 <!-- PRECIOS -->
 <section class="pricing" id="precios">
   <p class="sec-label">Tarifas</p>
-  <h2 class="sec-title">Precios <span>claros y honestos</span></h2>
-  <p class="sec-desc">Todo incluye polera Roly + estampado. Sin costos ocultos.</p>
-  <div class="price-grid">
-    <div class="pc">
-      <div class="pc-icon">🎨</div>
-      <div class="pc-name">Transfer</div>
-      <div class="pc-price">$14.900</div>
-      <div class="pc-from">desde · polera básica + estampado 1–2 colores</div>
-      <ul class="pc-features">
-        <li>Polera Beagle o Dogo Premium</li>
-        <li>Logos, textos, diseños simples</li>
-        <li>Tallas S a 3XL</li>
-        <li>Desde 1 unidad</li>
-      </ul>
-      <a href="https://wa.me/56937487831" class="pc-cta">Cotizar</a>
-    </div>
-    <div class="pc featured">
-      <div class="pc-icon">✨</div>
-      <div class="pc-name">Full Color</div>
-      <div class="pc-price">$14.900</div>
-      <div class="pc-from">desde · sublimación fotográfica</div>
-      <ul class="pc-features">
-        <li>Polera Dogo Premium o Sublima</li>
-        <li>Anime, K-pop, ilustraciones, fotos</li>
-        <li>Colores que no se despegan</li>
-        <li>Desde 1 unidad</li>
-      </ul>
-      <a href="https://wa.me/56937487831" class="pc-cta">Cotizar</a>
-    </div>
-    <div class="pc">
-      <div class="pc-icon">🖍️</div>
-      <div class="pc-name">Pack Artista</div>
-      <div class="pc-price">$10.900</div>
-      <div class="pc-from">sin lápices · mínimo 5 piezas</div>
-      <ul class="pc-features">
-        <li>Diseño exclusivo en contorno</li>
-        <li>Polera algodón blanca</li>
-        <li>Tallas niño y adulto</li>
-        <li>Kit marcadores +$1.500</li>
-      </ul>
-      <a href="https://wa.me/56937487831?text=Quiero%20cotizar%20Pack%20Artista" class="pc-cta">Cotizar evento</a>
-    </div>
-    <div class="pc">
-      <div class="pc-icon">🧥</div>
-      <div class="pc-name">Polerón</div>
-      <div class="pc-price">$22.900</div>
-      <div class="pc-from">desde · algodón grueso + estampado</div>
-      <ul class="pc-features">
-        <li>Polerón Clásica Roly</li>
-        <li>Transfer o sublimación</li>
-        <li>Hombre, mujer y niño</li>
-        <li>Desde 1 unidad</li>
-      </ul>
-      <a href="https://wa.me/56937487831" class="pc-cta">Cotizar</a>
-    </div>
-  </div>
+  <h2 class="sec-title">Precios por <span>talla</span></h2>
+  <p class="sec-desc">Poleras con estampado DTF incluido. Precios según talla.</p>
 
-  <!-- TABLA DESCUENTOS -->
-    <!-- TABLA POR TALLA -->
-    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.04em;color:var(--white);margin-bottom:16px">Precio por <span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">talla</span></h3>
-    <div style="overflow-x:auto;margin-bottom:40px">
-      <table class="disc-table">
-        <thead><tr>
-          <th>Talla</th><th>Polera Mujer</th><th>Polera Hombre</th><th>Niño</th><th>Polerón</th>
-        </tr></thead>
-        <tbody>
-          <tr><td><strong>S / XS</strong></td><td class="price-cell">$14.900</td><td class="price-cell">$14.900</td><td class="price-cell">$12.900</td><td class="price-cell">$22.900</td></tr>
-          <tr><td><strong>M</strong></td><td class="price-cell">$14.900</td><td class="price-cell">$14.900</td><td class="price-cell">$12.900</td><td class="price-cell">$23.900</td></tr>
-          <tr><td><strong>L</strong></td><td class="price-cell warm">$15.900</td><td class="price-cell warm">$15.900</td><td class="price-cell">$12.900</td><td class="price-cell warm">$24.900</td></tr>
-          <tr><td><strong>XL</strong></td><td class="price-cell warm">$16.900</td><td class="price-cell warm">$16.900</td><td class="price-cell">—</td><td class="price-cell warm">$25.900</td></tr>
-          <tr><td><strong>2XL</strong></td><td class="price-cell hot">$17.900</td><td class="price-cell hot">$17.900</td><td class="price-cell">—</td><td class="price-cell hot">$26.900</td></tr>
-          <tr><td><strong>3XL</strong></td><td class="price-cell hot">$18.900</td><td class="price-cell hot">$18.900</td><td class="price-cell">—</td><td class="price-cell hot">—</td></tr>
-        </tbody>
-      </table>
-    </div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.04em;color:var(--white);margin-top:44px;margin-bottom:4px">Descuentos por <span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">cantidad</span></h3>
-  <div style="overflow-x:auto">
+  <div style="overflow-x:auto;margin-top:20px">
     <table class="disc-table">
       <thead><tr>
-        <th>Cantidad</th><th>Transfer</th><th>Full Color</th><th>Pack Artista</th><th>Polerón</th>
+        <th>Talla</th>
+        <th>Polera (todos los géneros)</th>
+        <th>Polerón (unisex)</th>
       </tr></thead>
       <tbody>
-        <tr><td>1 – 4 unidades</td><td class="price-cell">$14.900</td><td class="price-cell">$14.900</td><td class="price-cell" style="color:rgba(245,240,255,.3);font-size:.8rem">Mín. 5</td><td class="price-cell">$22.900</td></tr>
-        <tr><td>5 – 9 unidades</td><td class="price-cell warm">$13.900</td><td class="price-cell warm">$13.500</td><td class="price-cell warm">$15.900</td><td class="price-cell warm">$20.900</td></tr>
-        <tr><td>10 – 19 unidades</td><td class="price-cell hot">$12.900</td><td class="price-cell hot">$12.500</td><td class="price-cell hot">$14.900</td><td class="price-cell hot">$19.900</td></tr>
-        <tr><td>20+ unidades 🔥</td><td class="price-cell hot">Consultar</td><td class="price-cell hot">Consultar</td><td class="price-cell hot">Consultar</td><td class="price-cell hot">Consultar</td></tr>
+        <tr><td><strong>S</strong></td><td class="price-cell">$14.900</td><td class="price-cell">$24.900</td></tr>
+        <tr><td><strong>M</strong></td><td class="price-cell">$14.900</td><td class="price-cell">$25.900</td></tr>
+        <tr><td><strong>L</strong></td><td class="price-cell">$15.900</td><td class="price-cell">$26.900</td></tr>
+        <tr><td><strong>XL</strong></td><td class="price-cell">$16.900</td><td class="price-cell">$27.900</td></tr>
+        <tr><td><strong>2XL</strong></td><td class="price-cell">$17.900</td><td class="price-cell">$28.900</td></tr>
+        <tr><td><strong>3XL</strong></td><td class="price-cell">$18.900</td><td class="price-cell">$29.900</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="margin-top:10px;font-size:.75rem;color:rgba(245,240,255,.3)">* Precios en CLP con IVA incluido. Despacho a todo Chile con costo adicional según destino.</p>
+
+  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.04em;color:var(--white);margin-top:44px;margin-bottom:4px">Descuentos por <span style="background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">cantidad</span></h3>
+  <div style="overflow-x:auto">
+    <table class="disc-table">
+      <thead><tr>
+        <th>Cantidad</th>
+        <th>Polera DTF</th>
+        <th>Polerón DTF</th>
+        <th>Pack Artista (con lápices)</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>1 – 4 unidades</td><td class="price-cell">$14.900</td><td class="price-cell">$24.900</td><td class="price-cell" style="color:rgba(245,240,255,.3);font-size:.8rem">Mín. 5</td></tr>
+        <tr><td>5 – 9 unidades</td><td class="price-cell warm">$13.900</td><td class="price-cell warm">$22.900</td><td class="price-cell warm">$15.900</td></tr>
+        <tr><td>10 – 19 unidades</td><td class="price-cell hot">$12.900</td><td class="price-cell hot">$21.900</td><td class="price-cell hot">$14.900</td></tr>
+        <tr><td>20+ unidades 🔥</td><td class="price-cell hot">Consultar</td><td class="price-cell hot">Consultar</td><td class="price-cell hot">Consultar</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:10px;font-size:.75rem;color:rgba(245,240,255,.3)">* Precios en CLP con IVA incluido. Despacho a todo Chile con costo adicional.</p>
 </section>
 
 <!-- PACK ARTISTA -->
@@ -860,19 +782,19 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
         <span class="badge bg">Princesas</span><span class="badge bp">Superhéroes</span>
       </div>
       <div style="text-align:center">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold)">desde $10.900</div>
-        <div style="font-size:.72rem;color:rgba(245,240,255,.4)">sin lápices · con lápices $15.900 · mín. 5 unidades</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold)">desde $15.900</div>
+        <div style="font-size:.72rem;color:rgba(245,240,255,.4)">polera + set de 6 lápices incluido · mínimo 5 unidades</div>
       </div>
     </div>
     <div class="col-text">
       <h2>La actividad que <em>todos recuerdan</em></h2>
-      <p>Cada invitado recibe una polera con diseño en contorno listo para colorear. Se la llevan como recuerdo único.</p>
+      <p>Cada invitado recibe una polera con diseño en contorno listo para colorear, más un set de 6 lápices de colores. Se la llevan como recuerdo único.</p>
       <p>Perfecta para <strong style="color:var(--gold)">cumpleaños, kermeses, talleres y eventos corporativos.</strong></p>
       <ul class="check-list">
         <li>Diseño temático exclusivo: anime, K-pop, Minecraft, princesas y más</li>
-        <li>Poleras 100% algodón Roly, tallas niño y adulto</li>
+        <li>Poleras 100% algodón, tallas niño y adulto</li>
         <li>Colorean en el momento y se la llevan puesta</li>
-        <li>Kit de marcadores permanentes opcional (+$1.500 por set)</li>
+        <li>Set de 6 lápices de colores incluido en el precio</li>
         <li>Mínimo 5 unidades · entrega en 5–7 días hábiles</li>
       </ul>
       <a href="https://wa.me/56937487831?text=Hola!%20Quiero%20cotizar%20el%20Pack%20Miau%20Artista" class="btn btn-primary">Cotizar para mi evento 🎉</a>
@@ -898,7 +820,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
     <div class="step">
       <div class="step-n">03</div>
       <h4>Producimos</h4>
-      <p>Estampamos con prensa profesional. 3–7 días hábiles según cantidad.</p>
+      <p>Estampamos con tecnología DTF profesional. 3–7 días hábiles según cantidad.</p>
     </div>
     <div class="step">
       <div class="step-n">04</div>
@@ -943,7 +865,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
   <div class="faq-list">
     <details><summary>¿Cuánto demora mi pedido?</summary><div class="faq-body">3 a 7 días hábiles desde la confirmación y el pago. Para eventos recomendamos pedir con al menos 2 semanas de anticipación.</div></details>
     <details><summary>¿Hacen pedidos de 1 sola polera?</summary><div class="faq-body">¡Sí! No tenemos mínimo para poleras estampadas. Solo el Pack Miau Artista requiere mínimo 5 unidades.</div></details>
-    <details><summary>¿Cuál es la diferencia entre transfer y sublimación?</summary><div class="faq-body">El <strong>transfer</strong> aplica vinilo sobre la tela — ideal para 1 a 3 colores y diseños simples. La <strong>sublimación</strong> integra la tinta en la fibra, permitiendo colores fotográficos y degradados. Solo funciona en telas blancas de poliéster o mezcla.</div></details>
+    <details><summary>¿Qué es DTF textil?</summary><div class="faq-body">La impresión DTF (Direct to Film) transfiere el diseño desde una película a la tela con calor. Ofrece colores vibrantes, alta durabilidad y una textura suave al tacto. Ideal para poleras de algodón y polerones.</div></details>
     <details><summary>¿Puedo subir mi propio diseño?</summary><div class="faq-body">¡Sí! Aceptamos PNG (fondo transparente), PDF o AI. Si tu archivo es de baja resolución podemos vectorizarlo con pequeño costo adicional.</div></details>
     <details><summary>¿Cómo cuido mi polera estampada?</summary><div class="faq-body">Lavar al revés en agua fría (máx 30°C). Sin secadora. Sin planchar sobre el estampado. Secar colgado.</div></details>
     <details><summary>¿Cuáles son los métodos de pago?</summary><div class="faq-body">Transferencia bancaria, Mercado Pago (tarjetas crédito/débito) y efectivo en retiro. Se solicita 50% de abono para iniciar producción.</div></details>
@@ -972,7 +894,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
-    <span class="footer-logo">gatillizos</span>
+    <a href="#" class="footer-logo"><img src="logo-gatillizos.png" alt="Gatillizos"/> gatillizos</a>
     <div class="footer-soc">
       <a href="https://wa.me/56937487831">💬</a>
       <a href="https://instagram.com/gatillizos.s">📸</a>
@@ -986,7 +908,7 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
       <span>🏦 Transferencia</span>
       <span>📱 Efectivo (Retiro)</span>
     </div>
-    <p>© 2026 Gatillizos – Poleras & Miaus · Estampado & Sublimación con identidad · Santiago, Chile 🇨🇱</p>
+    <p>© 2026 Gatillizos – Poleras & Miaus · Estampado DTF & Sublimación · Santiago, Chile 🇨🇱</p>
   </div>
 </footer>
 
@@ -995,7 +917,6 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div class="modal-inner">
-      <!-- PREVIEW -->
       <div class="modal-preview">
         <div class="preview-shirt-wrap">
           <div id="previewEmoji" style="font-size:8rem;transition:filter .3s">👕</div>
@@ -1007,28 +928,23 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
         </div>
         <div id="modalSizePreview" style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--cyan)">Talla —</div>
       </div>
-      <!-- FORM -->
       <div class="modal-form">
         <div>
-          <div class="modal-title" id="modalTitle">Polera Beagle Hombre</div>
-          <div class="modal-subtitle">Roly · Polera base + tu estampado</div>
+          <div class="modal-title" id="modalTitle">Polera Miau Clásica</div>
+          <div class="modal-subtitle">Polera base + estampado DTF incluido</div>
         </div>
-        <!-- Color -->
         <div>
           <span class="form-label">Color de la polera</span>
           <div class="color-picker" id="modalColors"></div>
         </div>
-        <!-- Talla -->
         <div>
           <span class="form-label">Talla</span>
           <div class="size-picker" id="modalSizes"></div>
         </div>
-        <!-- Descripción diseño -->
         <div>
           <span class="form-label">Describe tu diseño (opcional)</span>
           <textarea class="design-input" id="designText" rows="3" placeholder="Ej: Foto de mi gato con sombrero, frases, personaje de anime..."></textarea>
         </div>
-        <!-- Subir archivo -->
         <div>
           <span class="form-label">Sube tu diseño (PNG, PDF, AI)</span>
           <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
@@ -1038,11 +954,9 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
           </div>
           <input type="file" id="fileInput" style="display:none" accept=".png,.pdf,.ai,.jpg,.jpeg" onchange="showFileName(this)"/>
         </div>
-        <!-- Precio -->
         <div>
-          <div class="modal-price" id="modalPrice">$14.900 <span class="mp-note">incluye polera + estampado</span></div>
+          <div class="modal-price" id="modalPrice">$14.900 <span class="mp-note">incluye polera + estampado DTF</span></div>
         </div>
-        <!-- Acciones -->
         <div class="modal-actions">
           <button class="btn btn-primary" onclick="cotizarWpp()" style="width:100%">💬 Cotizar por WhatsApp</button>
           <button class="btn btn-outline" onclick="addModalToCart()" style="width:100%;border-color:var(--cyan);color:var(--cyan)">🛒 Agregar al carrito</button>
@@ -1066,11 +980,25 @@ footer p{font-size:.72rem;color:rgba(245,240,255,.27);text-align:center}
 </div>
 
 <script>
-// ── MODAL STATE ──
-let modalData = {};
-let selectedColor = '#ffffff';
-let selectedSize = '';
-let cart = JSON.parse(localStorage.getItem('g_cart')||'[]');
+// ── PRECIOS UNIFICADOS (todos los géneros iguales) ──
+const prices = {
+  S: 14900,
+  M: 14900,
+  L: 15900,
+  XL: 16900,
+  '2XL': 17900,
+  '3XL': 18900
+};
+
+// ── PRECIOS DE POLERONES ──
+const hoodiePrices = {
+  S: 24900,
+  M: 25900,
+  L: 26900,
+  XL: 27900,
+  '2XL': 28900,
+  '3XL': 29900
+};
 
 const colorNames = {
   '#ffffff':'Blanco','#000000':'Negro','#1e3a5f':'Azul marino','#8b0000':'Rojo',
@@ -1078,23 +1006,54 @@ const colorNames = {
   '#e8c4d4':'Rosa','#c8691e':'Naranja'
 };
 
-function openModal(name, emoji, price, gender, colors) {
-  modalData = {name, emoji, price, gender, colors};
+// ── MODAL STATE ──
+let modalData = {};
+let selectedColor = '#ffffff';
+let selectedSize = '';
+let cart = JSON.parse(localStorage.getItem('g_cart')||'[]');
+
+function openModal(name, emoji, gender, colors, fixedPrice) {
+  modalData = { name, emoji, gender, colors, fixedPrice };
   selectedColor = colors[0];
   selectedSize = '';
   document.getElementById('modalTitle').textContent = name;
   document.getElementById('previewEmoji').textContent = emoji;
-  document.getElementById('modalPrice').innerHTML = `$${price.toLocaleString()} <span class="mp-note">incluye polera + estampado</span>`;
+  let basePrice;
+  if (fixedPrice) {
+    basePrice = fixedPrice;
+  } else if (name.includes('Polerón')) {
+    basePrice = hoodiePrices['S'];
+  } else {
+    basePrice = prices['S'];
+  }
+  modalData.basePrice = basePrice;
+  modalData.gender = gender;
+  updateModalPrice(basePrice);
   // colors
   const cp = document.getElementById('modalColors');
   cp.innerHTML = colors.map((c,i) => `<div class="cp-dot ${i===0?'active':''}" style="background:${c};${c==='#ffffff'?'border:2px solid #ccc':''}" title="${colorNames[c]||c}" onclick="selectColor('${c}',this)"></div>`).join('');
   updateColorPreview(colors[0]);
   // sizes
   const sp = document.getElementById('modalSizes');
-  const sizes = gender==='niño' ? ['4','6','8','10','12','14'] : gender==='unisex' ? ['S','M','L','XL','2XL'] : ['XS','S','M','L','XL','2XL','3XL'];
-  // filter sizes that don't apply to product
-  const filteredSizes = name.includes('Botella')||name.includes('Gorro')||name.includes('Tazón')||name.includes('Tote') ? ['Única'] : name.includes('Sublima')&&!name.includes('Niño') ? ['S','M','L','XL','2XL'] : sizes;
-  sp.innerHTML = filteredSizes.map(s=>`<button class="sp-btn" onclick="selectSize2('${s}',this)">${s}</button>`).join('');
+  let sizes = [];
+  if (gender === 'niño') sizes = ['4','6','8','10','12','14'];
+  else if (gender === 'accesorio') {
+    if (name.includes('Taza')) sizes = ['11 oz','15 oz'];
+    else sizes = ['Única'];
+  } else if (name.includes('Polerón')) {
+    sizes = ['S','M','L','XL','2XL','3XL'];
+  } else {
+    // Poleras
+    if (name.includes('Fit') || name.includes('Sport DTF Mujer') || name.includes('Full Color DTF Mujer')) {
+      sizes = ['XS','S','M','L','XL'];
+    } else if (name.includes('Kids')) {
+      sizes = ['4','6','8','10','12','14'];
+      if (name.includes('Sport') && !name.includes('UV')) sizes = ['4','6','8','10','12'];
+    } else {
+      sizes = ['S','M','L','XL','2XL','3XL'];
+    }
+  }
+  sp.innerHTML = sizes.map(s => `<button class="sp-btn" onclick="selectSize2('${s}',this)">${s}</button>`).join('');
   document.getElementById('designText').value = '';
   document.getElementById('fileName').textContent = '';
   document.getElementById('modalOverlay').classList.add('open');
@@ -1116,7 +1075,6 @@ function selectColor(c, el){
 function updateColorPreview(c){
   document.getElementById('modalColorPreview').style.background = c;
   document.getElementById('modalColorName').textContent = colorNames[c]||c;
-  // change shirt emoji filter to simulate color
   const emoji = document.getElementById('previewEmoji');
   if(c==='#000000') emoji.style.filter='invert(1) drop-shadow(0 0 16px rgba(0,212,232,.3))';
   else if(c==='#1e3a5f') emoji.style.filter='sepia(1) saturate(3) hue-rotate(180deg) drop-shadow(0 0 16px rgba(0,212,232,.3))';
@@ -1131,6 +1089,31 @@ function selectSize2(s, el){
   document.querySelectorAll('.sp-btn').forEach(b=>b.classList.remove('active'));
   el.classList.add('active');
   document.getElementById('modalSizePreview').textContent = `Talla ${s}`;
+  let price = modalData.basePrice;
+  if (modalData.fixedPrice) {
+    // accesorios
+  } else if (modalData.name.includes('Polerón')) {
+    if (hoodiePrices[s]) price = hoodiePrices[s];
+    else {
+      const sizeMap = { 'XS':'S', '4':'S', '6':'M', '8':'L', '10':'XL', '12':'2XL', '14':'3XL' };
+      const mapped = sizeMap[s];
+      if (mapped && hoodiePrices[mapped]) price = hoodiePrices[mapped];
+    }
+  } else {
+    if (prices[s]) price = prices[s];
+    else {
+      const sizeMap = { 'XS':'S', '4':'S', '6':'M', '8':'L', '10':'XL', '12':'2XL', '14':'3XL' };
+      const mapped = sizeMap[s];
+      if (mapped && prices[mapped]) price = prices[mapped];
+    }
+  }
+  updateModalPrice(price);
+  modalData.currentPrice = price;
+}
+
+function updateModalPrice(price) {
+  const note = modalData.fixedPrice ? 'incluye personalización' : 'incluye polera + estampado DTF';
+  document.getElementById('modalPrice').innerHTML = `$${price.toLocaleString()} <span class="mp-note">${note}</span>`;
 }
 
 function showFileName(input){
@@ -1140,16 +1123,18 @@ function showFileName(input){
 function cotizarWpp(){
   const design = document.getElementById('designText').value;
   const file = document.getElementById('fileInput').files[0];
-  const msg = `Hola Gatillizos! Quiero cotizar:%0A%0A📦 Producto: ${modalData.name}%0A🎨 Color: ${colorNames[selectedColor]||selectedColor}%0A📐 Talla: ${selectedSize||'(por confirmar)'}%0A💰 Precio estimado: $${modalData.price.toLocaleString()}%0A%0A✏️ Diseño: ${design||'(te lo envío aparte)'}${file?`%0A📁 Archivo: ${file.name}`:''}`;
+  const price = modalData.currentPrice || modalData.basePrice || 14900;
+  const msg = `Hola Gatillizos! Quiero cotizar:%0A%0A📦 Producto: ${modalData.name}%0A🎨 Color: ${colorNames[selectedColor]||selectedColor}%0A📐 Talla: ${selectedSize||'(por confirmar)'}%0A💰 Precio: $${price.toLocaleString()}%0A%0A✏️ Diseño: ${design||'(te lo envío aparte)'}${file?`%0A📁 Archivo: ${file.name}`:''}`;
   window.open(`https://wa.me/56937487831?text=${msg}`,'_blank');
 }
 
 function addModalToCart(){
   if(!selectedSize){alert('Selecciona una talla primero');return}
+  const price = modalData.currentPrice || modalData.basePrice || 14900;
   const key = modalData.name+selectedSize+selectedColor;
   const ex = cart.find(i=>i.key===key);
   if(ex){ex.qty++}
-  else cart.push({key,name:modalData.name,emoji:modalData.emoji,price:modalData.price,color:colorNames[selectedColor]||selectedColor,size:selectedSize,qty:1});
+  else cart.push({key,name:modalData.name,emoji:modalData.emoji,price,color:colorNames[selectedColor]||selectedColor,size:selectedSize,qty:1});
   saveCart();
   closeModal();
   toggleCart();
@@ -1200,7 +1185,23 @@ function showCat(id, btn){
   btn.classList.add('active');
 }
 
+// ── ACTUALIZAR PRECIOS EN TARJETAS ──
+function updateCardPrices(){
+  document.querySelectorAll('.pcard').forEach(card => {
+    const priceEl = card.querySelector('.price-value');
+    if (priceEl) {
+      const name = card.querySelector('.pcard-name')?.textContent || '';
+      if (name.includes('Polerón')) {
+        priceEl.textContent = hoodiePrices['S'].toLocaleString();
+      } else {
+        priceEl.textContent = prices['S'].toLocaleString();
+      }
+    }
+  });
+}
+
 // ── INIT ──
+updateCardPrices();
 saveCart();
 </script>
 </body>
